@@ -1,6 +1,6 @@
 # sp-collapsible-navbar
 
-### Have YOU ever wanted to Collapse the SP Navbar???
+### Have YOU ever wanted to get authTokens without going to dev tools???
 
 ### Now You Can! In just 4 easy steps!
 
@@ -11,5 +11,7 @@
 3. Activate 'Developer mode'
 
 4. Press Load Unpacked in the top left and select the cloned repo.
+
+5. Click Button (May take a Reload Page)
 
 You're done enjoy!
