@@ -1,15 +1,24 @@
 {
 	"manifest_version": 3,
-	"name": "SP Collapsible Navbar",
+	"name": "SP Get Token",
 	"version": "1.0",
-	"description": "COLLAPSE THE SP NAVBAR!",
 	"host_permissions": [
 		"http://localhost/*"
 	],
 	"permissions": [
 		"activeTab",
-		"scripting"
+		"scripting", 
+		"clipboardWrite"
 	],
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "icon.png",
+			"32": "icon.png",
+			"48": "icon.png",
+			"128": "icon.png"
+	  }
+	},
 	"icons": {
 		"16": "icon.png",
 		"32": "icon.png",
@@ -18,20 +27,8 @@
 	},
 	"content_scripts": [
 		{
-			"matches": [
-				"https://*/*/deductions/*",
-				"https://*/walmart/*",
-				"https://*/amazon/*",
-				"https://explorer.supplypike.com/purchase-order-numbers*",
-				"https://app.supplypike.com/*",
-				"http://*/*/deductions*",
-				"http://*/*/deductions/*",
-				"http://*/walmart/*",
-				"http://*/amazon/*"
-			],
-			"js": [
-				"content.js"
-			]
+		  "matches": ["<all_urls>"], 
+		  "js": ["inject.js"]
 		}
-	]
+	  ]
 }
