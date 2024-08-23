@@ -1,4 +1,4 @@
-# sp-collapsible-navbar
+# sp-get-token
 
 ### Have YOU ever wanted to get authTokens without going to dev tools???
 
