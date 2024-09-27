@@ -1,36 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Token</title>
     <style>
-        .button {
-            background-color: #007BFF;
-            width: 200px;
-            color: white;
-            padding: 10px 32px;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
+      /* Center the content on the page */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        width: 300px;
+      }
+
+      /* Block-style text for the title */
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .button {
+        background-color: #007bff;
+        width: 100%;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Style for the toggle switch and label */
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+
+      .toggle-container label {
+        font-weight: bold;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #007bff;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(20px);
+      }
+
+      /* Toast style */
+      #toast {
+        visibility: hidden;
+        /* min-width: 250px; */
+        margin-left: 5%;
+        width: 69%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        bottom: 30px;
+        font-size: 17px;
+      }
+
+      #toast.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
         }
-        .button:hover {
-            background-color: #0056b3;
+        to {
+          bottom: 30px;
+          opacity: 1;
         }
+      }
+
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
     </style>
-</head>
-<body>
-    <div style="display: flex; justify-content: center; align-items: center; padding: 0px;">
-        <div style="text-align: center;">
-            <h1>sp-get-jwts</h1>
-            <div style="padding: 5px;">
-            <button id="getTokenBtn" class="button">COPY TOKEN</button>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Title Block -->
+      <h1>SP-GET-JWT</h1>
+
+      <!-- Button Block -->
+      <button id="getTokenBtn" class="button">GET TOKEN</button>
+
+      <!-- Toggle Block -->
+      <div class="toggle-container">
+        <label for="bearerToggle">Bearer</label>
+        <label class="switch">
+          <input type="checkbox" id="bearerToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div id="toast">Token copied!</div>
     </div>
+
     <script src="injected.js"></script>
-</body>
+  </body>
 </html>
