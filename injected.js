@@ -4,11 +4,19 @@ document.getElementById("getTokenBtn").addEventListener("click", function () {
       tabs[0].id,
       { method: "getToken" },
       function (response) {
-        if (response && response.token) {
+        if (response?.token) {
+          let token = response.token;
+          const prependBearer = document.getElementById("bearerToggle").checked;
+          if (prependBearer) {
+            token = `Bearer ${token}`;
+          }
           navigator.clipboard
-            .writeText(response.token)
+            .writeText(token)
             .then(() => {
-              console.log("Token copied to clipboard!");
+              toast.className = "show";
+              setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+              }, 3000);
             })
             .catch((err) => {
               console.error("Failed to copy token: ", err);
