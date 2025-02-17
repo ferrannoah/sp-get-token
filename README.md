@@ -4,7 +4,7 @@
 
 ### Now You Can! In just 4 easy steps!
 
-0. Clone this repo
+0. Download the zip file
 
 1. Go to the [Chrome Extensions Page](chrome://extensions), chrome://extensions
 
